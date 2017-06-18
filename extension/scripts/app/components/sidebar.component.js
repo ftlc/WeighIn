@@ -76,6 +76,7 @@ function SideBarComponent() {
         newComment.innerHTML = '<div><span class="weigh-in-username">'+username+'</span>: '+comment+'</div>' +
             '<div class="weigh-in-datetime">'+moment(datetime).fromNow()+'</div>';
         listEle.appendChild(newComment);
+        document.getElementById("weigh-in-comment-input").value = "";
     };
 
     var sendButton = this.el.querySelector('#weigh-in-send-button');
