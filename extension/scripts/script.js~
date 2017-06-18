@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> origin/master
 window.onload = function () {
     var toggleSwitch = document.querySelector('#switch-toggle');
     isPlugInEnabled(function (enabled) {
