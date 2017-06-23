@@ -53,8 +53,5 @@
   "permissions": [
     "storage",
     "contextMenus"
-  ],
-  "web_accessible_resources": [
-    "*.html"
   ]
 }
