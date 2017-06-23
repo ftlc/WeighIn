@@ -4,21 +4,54 @@
   "description": "This extension allows users to highlight and comment on articles",
   "version": "1.0",
   "browser_action": {
-    "default_icon": "images/icon128-grey.png",
+    "default_icon": "assets/images/icon128-grey.png",
     "default_popup": "popup.html"
   },
   "icons": {
-    "16": "images/icon16.png",
-    "48": "images/icon48.png",
-    "128": "images/icon128.png",
-    "256": "images/icon256.png"
+    "16": "assets/images/icon16.png",
+    "48": "assets/images/icon48.png",
+    "128": "assets/images/icon128.png",
+    "256": "assets/images/icon256.png"
+  },
+  "background": {
+    "scripts": [
+      "app/states/app.state.js",
+      "background/helpers/request.js",
+      "background/services/context-menu.service.js",
+      "shared/messages/request.message.js",
+      "background/daemon.js"
+    ]
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "css": ["styles/style.css", "styles/app/app.component.css", "styles/app/sidebar.component.css"],
-      "js": ["scripts/app/sidebar.component.js","scripts/app/app.component.js"]
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": [
+        "app/components/app.component.css",
+        "app/components/sidebar.component.css",
+        "app/components/message-box.component.css"
+      ],
+      "js": [
+        "node_modules/moment/min/moment.min.js",
+        "node_modules/handlebars/dist/handlebars.js",
+        "node_modules/actioncable-js/dist/action_cable.js",
+        "shared/messages/request.message.js",
+        "app/services/state.service.js",
+        "app/states/app.state.js",
+        "app/helpers/uuid.min.js",
+        "app/services/comment.service.js",
+        "app/services/app-state.service.js",
+        "app/components/component.js",
+        "app/components/sidebar.component.js",
+        "app/components/message-box.component.js",
+        "app/components/app.component.js"
+      ]
     }
   ],
-  "permissions": ["storage"]
+  "permissions": [
+    "storage",
+    "contextMenus"
+  ]
 }
